@@ -2,10 +2,11 @@ language: python
 python:
   - "2.7"
 before_install:
+  - sudo pip install pip setuptools --upgrade
   - sudo apt-get install pandoc
   - pip install coveralls --use-mirrors
 install:
-  - python setup.py install
+  - pip install .[all]
 script: nosetests test/
 after_success:
   - coveralls
